@@ -2,6 +2,7 @@ import Logo from '../Logo/index.js';
 import NavOption from '../NavOptions/index.js';
 import IconsHeader from '../IconsHeader/index.js';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const HeaderContainer = styled.header`
     align-items: center;
@@ -12,10 +13,18 @@ const HeaderContainer = styled.header`
     padding: 0 25px;
 `
 
+const LogoLink = styled(Link)`
+    cursor: pointer;
+    text-decoration: none;
+    color: black
+`
+
 function Header() {
     return(
         <HeaderContainer>
-            <Logo/>
+            <LogoLink to='/'>
+                <Logo/>
+            </LogoLink>
             <NavOption/>
             <IconsHeader/>
          </HeaderContainer>

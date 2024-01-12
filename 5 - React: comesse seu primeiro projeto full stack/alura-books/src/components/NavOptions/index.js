@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const HeaderNav = styled.ul`
@@ -6,19 +7,27 @@ const HeaderNav = styled.ul`
     justify-content: space-around;
     gap: 50px;
     margin: 0;
-`;
+`
 
 const HeaderNavOption = styled.li`
     cursor: pointer;
 `
 
+const NavLink = styled(Link)`
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+`
+
 function navOption() {
-    const navOption = ['Categoria', 'Minha estante', 'Favoritos']
+    const navOption = ['Category', 'Bookcase', 'Favorites']
 
     return (
         <HeaderNav>
             { navOption.map( (option) => (
-            <HeaderNavOption>{option}</HeaderNavOption>
+                <NavLink to={`/${option.toLowerCase()}`}>
+                    <HeaderNavOption>{option}</HeaderNavOption>
+                </NavLink>
             ))}
         </HeaderNav>  
     )

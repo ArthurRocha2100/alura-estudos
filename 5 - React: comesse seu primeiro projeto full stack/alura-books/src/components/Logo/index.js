@@ -12,6 +12,7 @@ const LogoImage = styled.img`
 
 const LogoTitle = styled.p`
     border-bottom: 1px solid #000;
+    
     font-size: 1.5rem;
     margin: 0;
 `;

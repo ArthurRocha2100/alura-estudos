@@ -1,6 +1,5 @@
-import Header from './components/Header/index.js';
-import LastReleases from './components/LastReleases/index.js';
-import Search from './components/Search/index.js';
+import LastReleases from '../components/LastReleases/index.js';
+import Search from '../components/Search/index.js';
 import styled from 'styled-components';
 
 const AppComponent = styled.div`
@@ -10,14 +9,13 @@ const AppComponent = styled.div`
   flex-direction: column;
 `
 
-function App() {
+function Home() {
   return (
     <AppComponent>
-      <Header/>
       <Search/>
       <LastReleases/>
     </AppComponent>
   );
 }
 
-export default App;
+export default Home;
