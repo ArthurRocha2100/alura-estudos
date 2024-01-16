@@ -1,7 +1,8 @@
 import Input from "../Input";
 import styled from "styled-components";
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import { books } from "./dbBooksTemp";
+import { getBooks } from "../../services/books";
 
 const SearchContainer = styled.section`
     min-height: 100vh;
@@ -45,7 +46,17 @@ const BookTitle = styled.p`
     align-items: center;
 `
 function Search() {
-    const [bookSearch, setBookSearch] = useState([]);
+    const [bookSearch, setBookSearch] = useState([])
+    const [books, setBook] = useState([])
+
+    useEffect(() => {
+        fetchBooks()
+    }, [])
+
+    async function fetchBooks() {
+        const bookOfAPI = await getBooks()
+        setBook(bookOfAPI)
+    }
 
     return (
         <SearchContainer>
