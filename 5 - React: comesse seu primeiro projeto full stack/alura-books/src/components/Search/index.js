@@ -44,6 +44,9 @@ const BookTitle = styled.p`
     font-size:1.2rem;
     margin: 10px 0;
     align-items: center;
+    background-color: white;
+    padding: 10px;
+    border-radius:10px;
 `
 function Search() {
     const [bookSearch, setBookSearch] = useState([])
@@ -74,7 +77,7 @@ function Search() {
             <ResultContainer>
                 {bookSearch.map(book  => (
                 <CardBook>
-                        <BookImage src={book.src}/>
+                        <BookImage src={book.ImageURL}/>
                         <BookTitle>{book.name}</BookTitle>
                 </CardBook>
                 ))}

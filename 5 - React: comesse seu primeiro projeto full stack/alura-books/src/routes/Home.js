@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const AppComponent = styled.div`
   background-image: linear-gradient(90deg,#022036 35%, #3265B9 165%);
-  min-width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
 `

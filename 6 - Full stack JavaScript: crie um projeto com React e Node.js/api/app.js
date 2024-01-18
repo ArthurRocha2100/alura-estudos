@@ -3,7 +3,7 @@ const rotaDeLivros = require('./Routers/book');
 const rotaFavoritos = require('./Routers/favorites');
 const cors = require('cors');
 const app = express();
-const port = 1104; 
+const port = 8000; 
 
 app.use(express.json());
 app.use(cors({origin: '*'}));
