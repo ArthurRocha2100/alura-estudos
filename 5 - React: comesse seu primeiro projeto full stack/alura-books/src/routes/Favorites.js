@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import LastReleases from '../components/LastReleases/index.js';
 import Search from '../components/Search/index.js';
 import styled from 'styled-components';
-import { getFavorites } from '../services/favorites.js';
+import { deleteFavorite, getFavorites } from '../services/favorites.js';
 
 const AppComponent = styled.div`
   background-image: linear-gradient(90deg,#022036 35%, #3265B9 165%);
@@ -49,6 +49,12 @@ function Favorites() {
       setFavorites(favoriteApi)
     }
 
+    async function removeFavorites(id) {
+      await deleteFavorite(id)
+      await fetchFavorites()
+      alert('Successful delete!!!')
+    }
+
     useEffect(() => {
       fetchFavorites()
     },[])
@@ -58,7 +64,7 @@ function Favorites() {
       <FavoriteContainer>
         {
           favorite.map(f => (
-            <FavoriteCard>
+            <FavoriteCard onClick={() => removeFavorites(f.id)}>
               <BookImg src={f.ImageURL}/>
               <BookTitle>{f.name}</BookTitle>
             </FavoriteCard>

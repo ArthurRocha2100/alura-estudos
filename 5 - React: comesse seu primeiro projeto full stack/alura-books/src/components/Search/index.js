@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useState , useEffect} from "react";
 import { books } from "./dbBooksTemp";
 import { getBooks } from "../../services/books";
+import { postFavorite } from "../../services/favorites";
 
 const SearchContainer = styled.section`
     min-height: 100vh;
@@ -34,6 +35,7 @@ const CardBook = styled.div`
     width:20%;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 `
 const BookImage = styled.img`
     border-radius: 10px;
@@ -61,6 +63,11 @@ function Search() {
         setBook(bookOfAPI)
     }
 
+    async function insertFavorite(id) {
+        await postFavorite(id)
+        alert('Successful add')
+    }
+
     return (
         <SearchContainer>
             <Title>Já sabe por onde começar?</Title>
@@ -76,7 +83,7 @@ function Search() {
 
             <ResultContainer>
                 {bookSearch.map(book  => (
-                <CardBook>
+                <CardBook onClick={() => insertFavorite(book.id)}>
                         <BookImage src={book.ImageURL}/>
                         <BookTitle>{book.name}</BookTitle>
                 </CardBook>
